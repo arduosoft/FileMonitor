@@ -59,7 +59,7 @@ Move| move the file monitored to a destination|
 Please contact us opening an issue to have you plugin listed here.
 
 ActionName|Description|Author|
-----------|------------------|
+----------|-----------|------|
 
 
 ##How to extend a plugin
@@ -105,5 +105,19 @@ Do you want to try coding? It's simple to start: just
 5. edit config.json and run FileMonitor
 
 #License
-
+ 
+  Copyright (c) 2015 Daniele Fotnani.
+  
+  This program is free software: you can redistribute it and/or modify  
+  it under the terms of the GNU Lesser General Public License as   
+  published by the Free Software Foundation, version 3.
+ 
+  This program is distributed in the hope that it will be useful, but 
+  WITHOUT ANY WARRANTY; without even the implied warranty of 
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+  Lesser General Lesser Public License for more details.
+ 
+  You should have received a copy of the GNU Lesser General Public License
+  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ 
 
