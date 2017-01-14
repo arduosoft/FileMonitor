@@ -52,14 +52,14 @@ Foreach file filter you can specify wich action to do for each event.
 Here are reported the action shipped with FileMonitor. Many addctional action can be implemented by following the guide above. 
 
 ActionName|Description|
---------------------------------
+----------|-----------|
 Move| move the file monitored to a destination| 
 
 ##Contributor Actions
 Please contact us opening an issue to have you plugin listed here.
 
 ActionName|Description|Author|
-------------------------------
+----------|------------------|
 
 
 ##How to extend a plugin
@@ -97,6 +97,7 @@ You just have to implement FileProcessor class, where
 ```
 
 Do you want to try coding? It's simple to start: just 
+
 1. open your ide and create a library project
 2. add FileMonitor from nuget. This will allow you to see interface and classes from the core
 3. implement your file processor using this guide
