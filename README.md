@@ -51,14 +51,58 @@ Foreach file filter you can specify wich action to do for each event.
 ##Core Actions
 Here are reported the action shipped with FileMonitor. Many addctional action can be implemented by following the guide above. 
 
-ActionName|Description
+ActionName|Description|
 --------------------------------
 Move| move the file monitored to a destination| 
 
 ##Contributor Actions
 Please contact us opening an issue to have you plugin listed here.
+
 ActionName|Description|Author|
 ------------------------------
 
 
 ##How to extend a plugin
+
+You just have to implement FileProcessor class, where
+* *ActionName:* is the name of the action. It have to be unique, so it's a good idea to use a prefix in case you whant to share it with others, to avoid naming collision. i.e. you can use mynickname.Action insthead of Action. _just place an hardcoded string_
+* *Process:* Take in input all an object that stores:
+        * info about the file and history of last changes
+        * arguments specified by the user in config.json for your action, 
+        * the result of previous steps
+
+```cs
+ public class Move : Core.FileProcessor
+    {
+        public override string ActionName
+        {
+            get
+            {
+                return "Move";
+            }
+        }
+
+        public override void Process(EventContext context)
+        {
+            if (!context.Arguments.ContainsKey("destination")) throw new Exception("Move action requires destination field");
+
+            string destination = context.Arguments["destination"];
+            destination = destination.Replace("{filename}", Path.GetFileName(context.File.FilePath));
+            destination = destination.Replace("{sourceDir}", Path.GetDirectoryName(context.File.FilePath));
+            destination = destination.Replace("{sourceExt}", Path.GetExtension(context.File.FilePath));
+            destination = destination.Replace("{dt}", DateTime.Now.ToString("yyyy-MM-dd-HHmmSS"));
+            File.Move(context.File.FilePath, destination);
+        }
+    }
+```
+
+Do you want to try coding? It's simple to start: just 
+1. open your ide and create a library project
+2. add FileMonitor from nuget. This will allow you to see interface and classes from the core
+3. implement your file processor using this guide
+4. copy your library and all dependencies on the path
+5. edit config.json and run FileMonitor
+
+#License
+
+
