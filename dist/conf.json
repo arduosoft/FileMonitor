@@ -1,0 +1,1 @@
+{"Filters":[{"FileFolder":"C:\\temp\\","FileName":"*.txt","OnChange":[{"ActionName":"Move","Arguments":{"destination":"C:\\temp\\{filename}_{dt}.txt"}}],"OnNew":null,"OnDeleted":null}]}
